@@ -9,7 +9,19 @@
         android:background="@color/colorTop"
         android:elevation="4dp"
         app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        >
 
-        />
+        <TextView
+            android:id="@+id/txtToolBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/colortext"
+            android:textSize="22sp"
+           />
+
+        </android.support.v7.widget.Toolbar>
+
+
 
 </merge>

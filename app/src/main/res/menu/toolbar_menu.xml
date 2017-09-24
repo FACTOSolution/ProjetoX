@@ -8,7 +8,6 @@
         android:id="@+id/procurar"
         android:title="Procurar"
         android:icon="@drawable/ic_procurar"
-        app:showAsAction="ifRoom"
         >
 
     </item>
