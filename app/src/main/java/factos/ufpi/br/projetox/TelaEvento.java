@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import android.view.View;
 import android.widget.TextView;
 
 import factos.ufpi.br.projetox.model.Evento;
@@ -33,13 +35,26 @@ public class TelaEvento extends AppCompatActivity {
         user = (TextView) findViewById(R.id.txtUserEvent);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        TextView titulo = (TextView) toolbar.findViewById(R.id.txtToolBar);
-
-        titulo.setText(evento.getNome());
+        toolbar.setTitle(evento.getNome());
         data.setText(evento.getData());
         descricao.setText("Falta colocar descrição no evento!!");
         valor.setText("0800");
         local.setText(evento.getLocal());
         user.setText("Lucas China");
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent home = new Intent(getApplicationContext(), TelaHome.class);
+                finish();
+                startActivity(home);
+            }
+        });
     }
+
+
+
 }

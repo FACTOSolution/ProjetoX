@@ -7,6 +7,7 @@
     android:background="@color/colorFundo">
 
     <RelativeLayout
+        android:id="@+id/telaHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
