@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Objects;
 
 import factos.ufpi.br.projetox.R;
 import factos.ufpi.br.projetox.model.Evento;
@@ -55,11 +56,19 @@ public class EventoAdapter extends BaseAdapter{
         TextView local = (TextView) v.findViewById(R.id.tv_local);
         TextView data = (TextView) v.findViewById(R.id.tv_data);
         ImageView foto = (ImageView) v.findViewById(R.id.iv_foto);
+        ImageView tipo = (ImageView) v.findViewById(R.id.tipoEvento);
 
         nome.setText(evento.getNome());
         local.setText(evento.getLocal());
         data.setText(evento.getData());
         foto.setImageResource(R.drawable.evento);
+
+        if(Objects.equals(evento.getTipo(), "academico")){
+            tipo.setImageResource(R.mipmap.ic_academico);
+        }
+        else{
+            tipo.setImageResource(R.mipmap.ic_festa2);
+        }
 
         return v;
     }
