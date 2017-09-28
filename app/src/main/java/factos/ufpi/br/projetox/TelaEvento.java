@@ -1,14 +1,21 @@
 package factos.ufpi.br.projetox;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 import factos.ufpi.br.projetox.model.Evento;
+
+import static factos.ufpi.br.projetox.R.drawable.ic_cultural_tab;
 
 
 public class TelaEvento extends AppCompatActivity {
@@ -35,13 +42,23 @@ public class TelaEvento extends AppCompatActivity {
         user = (TextView) findViewById(R.id.txtUserEvent);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+
         toolbar.setTitle(evento.getNome());
+
         data.setText(evento.getData());
         descricao.setText("Falta colocar descrição no evento!!");
         valor.setText("0800");
         local.setText(evento.getLocal());
         user.setText("Lucas China");
 
+
+        if(Objects.equals(evento.getTipo(), "academico")) {
+
+            toolbar.setLogo(R.drawable.ic_academico_tab);
+        }
+        else{
+            toolbar.setLogo(R.drawable.ic_cultural_tab);
+        }
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
