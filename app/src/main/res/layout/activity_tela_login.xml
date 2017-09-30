@@ -1,0 +1,108 @@
+<RelativeLayout android:id="@+id/activity_tela_login"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context="factos.ufpi.br.projetox.TelaLongin"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Top Toolbar -->
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/layout_top_tabs" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_below="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="462dp"
+        android:background="@color/colorFundo"
+        android:orientation="vertical"
+        android:paddingEnd="40dp"
+        android:paddingStart="40dp">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/username"
+
+            android:hint="Email"
+            android:layout_marginTop="160dp"
+            android:textColor="#FFF"
+            android:paddingLeft="0dp"
+            android:drawablePadding="5dp"
+            android:textColorHint="#999"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/password"
+
+            android:hint="Password"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFF"
+            android:paddingLeft="0dp"
+            android:drawablePadding="5dp"
+            android:textColorHint="#999"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="SignIn"
+            android:textColor="@color/colortext"
+            android:id="@+id/button"
+            android:background="@drawable/style_button"
+            android:layout_gravity="center_horizontal"
+            android:onClick="checkLogin"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Esqueceu a senha?"
+            android:id="@+id/textEsqueceuSenha"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:textColor="#FFF"
+            android:clickable="true"
+            android:onClick="TelaEsqueceuSenha"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Criar conta"
+            android:id="@+id/textCriarConta"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFF"
+            android:clickable="true"
+            android:onClick="telaCriarConta"
+            />
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom">
+
+        <!-- bottom navigation-->
+        <include layout="@layout/layout_bottom_navagation_view"/>
+
+    </RelativeLayout>
+</RelativeLayout>

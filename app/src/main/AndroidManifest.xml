@@ -18,7 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TelaEvento"></activity>
+        <activity android:name=".TelaEvento" />
+        <activity android:name=".TelaLongin" />
+        <activity android:name=".TelaEsqueceuSenha" />
+        <activity android:name=".TelaCriarConta" />
+        <activity android:name=".TelaUsuario"></activity>
     </application>
 
 </manifest>

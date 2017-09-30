@@ -1,21 +1,15 @@
 package factos.ufpi.br.projetox;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Objects;
 
 import factos.ufpi.br.projetox.model.Evento;
-
-import static factos.ufpi.br.projetox.R.drawable.ic_cultural_tab;
 
 
 public class TelaEvento extends AppCompatActivity {

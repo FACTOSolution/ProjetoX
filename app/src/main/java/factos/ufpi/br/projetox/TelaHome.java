@@ -2,10 +2,10 @@ package factos.ufpi.br.projetox;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -13,8 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.List;
@@ -40,6 +38,24 @@ public class TelaHome extends AppCompatActivity implements AdapterView.OnItemCli
         setSupportActionBar(myToolbar);
 
         myBottomNav = (BottomNavigationView) findViewById(R.id.bottomNavViewBar);
+        myBottomNav.setOnNavigationItemSelectedListener( new BottomNavigationView.OnNavigationItemSelectedListener(){
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.ic_home:
+                        break;
+                    case R.id.ic_user:
+                        // Quando o usuario clicar nesse botão, temos que testar se ele já ta logado primeiro.
+                        Intent it = new Intent(TelaHome.this,TelaLongin.class);
+                        startActivity(it);
+                        break;
+                    case R.id.ic_Top10:
+                        break;
+                }
+                return true;
+            }
+        });
 
 
 
@@ -50,6 +66,8 @@ public class TelaHome extends AppCompatActivity implements AdapterView.OnItemCli
         listView.setAdapter(eventoAdapter);
         listView.setOnItemClickListener(TelaHome.this);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

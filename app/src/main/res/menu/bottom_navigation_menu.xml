@@ -14,7 +14,7 @@
     </item>
 
     <item
-        android:id="@+id/conf"
+        android:id="@+id/ic_Top10"
         android:icon="@drawable/ic_favorito"
         android:title="Top 10">
 
