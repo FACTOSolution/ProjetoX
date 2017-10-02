@@ -33,6 +33,7 @@ public class TelaHome extends AppCompatActivity implements AdapterView.OnItemCli
     private Toolbar myToolbar;
     private BottomNavigationView myBottomNav;
     private ListView listView;
+    private EventoAdapter eventoAdapter;
 
     private static final String TAG = "MainActivity";
     private List<Evento> event;
@@ -82,6 +83,7 @@ public class TelaHome extends AppCompatActivity implements AdapterView.OnItemCli
 
                     event = response.body();
 
+
                     listView = (ListView) findViewById(R.id.listaEventos);
 
                     EventoAdapter eventoAdapter = new EventoAdapter(TelaHome.this,event);
@@ -96,7 +98,8 @@ public class TelaHome extends AppCompatActivity implements AdapterView.OnItemCli
                 Log.e(TAG,"" + t.getMessage());
                 System.out.println("" + t.getMessage());
             }
-        });;
+        });
+
     }
 
 
@@ -128,6 +131,9 @@ public class TelaHome extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public boolean onQueryTextChange(String newText) {
+
+
+
         return false;
     }
 }
