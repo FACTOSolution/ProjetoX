@@ -37,22 +37,22 @@ public class TelaEvento extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
-        toolbar.setTitle(evento.getNome());
-
-        data.setText(evento.getData());
-        descricao.setText("Falta colocar descrição no evento!!");
-        valor.setText("0800");
-        local.setText(evento.getLocal());
-        user.setText("Lucas China");
-
-
-        if(Objects.equals(evento.getTipo(), "academico")) {
-
-            toolbar.setLogo(R.drawable.ic_academico_tab);
-        }
-        else{
-            toolbar.setLogo(R.drawable.ic_cultural_tab);
-        }
+//        toolbar.setTitle(evento.getNome());
+//
+//        data.setText(evento.getData());
+//        descricao.setText("Falta colocar descrição no evento!!");
+//        valor.setText("0800");
+//        local.setText(evento.getLocal());
+//        user.setText("Lucas China");
+//
+//
+//        if(Objects.equals(evento.getTipo(), "academico")) {
+//
+//            toolbar.setLogo(R.drawable.ic_academico_tab);
+//        }
+//        else{
+//            toolbar.setLogo(R.drawable.ic_cultural_tab);
+//        }
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

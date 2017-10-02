@@ -58,12 +58,12 @@ public class EventoAdapter extends BaseAdapter{
         ImageView foto = (ImageView) v.findViewById(R.id.iv_foto);
         ImageView tipo = (ImageView) v.findViewById(R.id.tipoEvento);
 
-        nome.setText(evento.getNome());
-        local.setText(evento.getLocal());
-        data.setText(evento.getData());
-        foto.setImageResource(R.drawable.evento);
-
-        if(Objects.equals(evento.getTipo(), "academico")){
+        nome.setText(evento.getName());
+        local.setText(evento.getAddress());
+        data.setText(evento.getDate());
+//        foto.setImageResource(R.drawable.evento);
+//
+        if(Objects.equals(evento.getType(), "academico")){
             tipo.setImageResource(R.mipmap.ic_academico);
         }
         else{

@@ -1,6 +1,9 @@
 package factos.ufpi.br.projetox.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by lucas_brito on 14/09/17.
@@ -8,60 +11,132 @@ import java.io.Serializable;
 
 public class Evento implements Serializable {
 
-    private int foto;
-    private String nome;
-    private String local;
+
+    private int event_id;
+    private String name;
+    private String description;
+    private String value;
+    private String address;
+    private String contact;
+    private String type;
     private String date;
-    private String tipo;
+    private String status;
+    private int user;
+    private boolean published;
+    private String lat;
+    @SerializedName("long")
+    private String longX;
+    private List<String> images;
 
-    public Evento(){}
-
-    public Evento( String nome, String local, String data, String tipo, int foto) {
-        this.foto = foto;
-        this.nome = nome;
-        this.local = local;
-        this.date = data;
-        this.tipo = tipo;
+    public int getEvent_id() {
+        return event_id;
     }
 
-    public String getLocal() {
-        return local;
+    public void setEvent_id(int event_id) {
+        this.event_id = event_id;
     }
 
-    public void setLocal(String local) {
-        this.local = local;
+    public String getName() {
+        return name;
     }
 
-    public String getData() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDate() {
         return date;
     }
 
-    public void setData(String data) {
-        this.date = data;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getNome() {
-        return nome;
+    public String getStatus() {
+        return status;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-
-    public int getFoto() {
-        return foto;
+    public int getUser() {
+        return user;
     }
 
-    public void setFoto(int foto) {
-        this.foto = foto;
+    public void setUser(int user) {
+        this.user = user;
     }
 
-    public String getTipo() {
-        return tipo;
+    public boolean isPublished() {
+        return published;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLongX() {
+        return longX;
+    }
+
+    public void setLongX(String longX) {
+        this.longX = longX;
+    }
+
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 }

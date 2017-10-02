@@ -8,18 +8,25 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.List;
 
 import factos.ufpi.br.projetox.adapters.EventoAdapter;
+import factos.ufpi.br.projetox.dao.ConsumirJson;
+import factos.ufpi.br.projetox.dao.EventService;
 import factos.ufpi.br.projetox.dao.EventoDAO;
 import factos.ufpi.br.projetox.model.Evento;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TelaHome extends AppCompatActivity implements AdapterView.OnItemClickListener, SearchView.OnQueryTextListener {
 
@@ -27,6 +34,9 @@ public class TelaHome extends AppCompatActivity implements AdapterView.OnItemCli
     private Toolbar myToolbar;
     private BottomNavigationView myBottomNav;
     private ListView listView;
+
+    private static final String TAG = "MainActivity";
+    private List<Evento> event;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +69,52 @@ public class TelaHome extends AppCompatActivity implements AdapterView.OnItemCli
 
 
 
-        List<Evento> listaEventos = new EventoDAO().getSetEventos(3);
-        listView = (ListView) findViewById(R.id.listaEventos);
+        EventService service = new ConsumirJson().getService();
 
-        EventoAdapter eventoAdapter = new EventoAdapter(this,listaEventos);
-        listView.setAdapter(eventoAdapter);
-        listView.setOnItemClickListener(TelaHome.this);
+        Call<List<Evento>> eventoCall = service.listEvent();
+        eventoCall.enqueue(new Callback<List<Evento>>() {
+            @Override
+            public void onResponse(Call<List<Evento>> call, Response<List<Evento>> response) {
+                Log.d(TAG, "onResponse: "+response.code());
+                Log.d(TAG, "\n Body: "+response.errorBody());
+
+                List<Evento> evento ;
+
+                if(response.isSuccessful()){
+                    //  evento = response.body();
+
+                    event = response.body();
+
+                    if(event == null) {
+                        System.out.println("EVENT VAZIO");
+                    }
+                    else{
+                        System.out.println("EVENT OK");
+                    }
+
+
+                    for(Evento e: event){
+
+                        Log.i(TAG,String.format("%s: %s", e.getName(), e.getDescription()));
+                    }
+
+                    // List<Evento> listaEventos = new EventoDAO().getSetEventos(3);
+                    listView = (ListView) findViewById(R.id.listaEventos);
+
+
+                    EventoAdapter eventoAdapter = new EventoAdapter(TelaHome.this,event);
+                    listView.setAdapter(eventoAdapter);
+                    listView.setOnItemClickListener(TelaHome.this);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Evento>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Erro: " + t.getMessage(),Toast.LENGTH_LONG).show();
+                Log.e(TAG,"" + t.getMessage());
+                System.out.println("" + t.getMessage());
+            }
+        });;
     }
 
 

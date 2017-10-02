@@ -22,10 +22,10 @@ public class EventoDAO {
 
     public List<Evento> getSetEventos(int quant){
 
-        for(int i=0; i < quant; i++){
-            Evento e = new Evento(nome[i % nome.length],local[i % local.length],data[i % data.length],tipo[i % tipo.length], fotos[i % fotos.length]);
-            listAux.add(e);
-        }
+//        for(int i=0; i < quant; i++){
+//            Evento e = new Evento(nome[i % nome.length],local[i % local.length],data[i % data.length],tipo[i % tipo.length], fotos[i % fotos.length]);
+//            listAux.add(e);
+//        }
 
         return (listAux);
     }
