@@ -1,4 +1,4 @@
-package factos.ufpi.br.projetox.dao;
+package factos.ufpi.br.projetox.api;
 
 /**
  * Created by fmendes on 28/09/17.
@@ -11,8 +11,6 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

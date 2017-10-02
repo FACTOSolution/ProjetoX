@@ -20,9 +20,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import factos.ufpi.br.projetox.adapters.EventoAdapter;
-import factos.ufpi.br.projetox.dao.ConsumirJson;
-import factos.ufpi.br.projetox.dao.EventService;
-import factos.ufpi.br.projetox.dao.EventoDAO;
+import factos.ufpi.br.projetox.api.ConsumirJson;
+import factos.ufpi.br.projetox.api.EventService;
 import factos.ufpi.br.projetox.model.Evento;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -78,29 +77,12 @@ public class TelaHome extends AppCompatActivity implements AdapterView.OnItemCli
                 Log.d(TAG, "onResponse: "+response.code());
                 Log.d(TAG, "\n Body: "+response.errorBody());
 
-                List<Evento> evento ;
 
                 if(response.isSuccessful()){
-                    //  evento = response.body();
 
                     event = response.body();
 
-                    if(event == null) {
-                        System.out.println("EVENT VAZIO");
-                    }
-                    else{
-                        System.out.println("EVENT OK");
-                    }
-
-
-                    for(Evento e: event){
-
-                        Log.i(TAG,String.format("%s: %s", e.getName(), e.getDescription()));
-                    }
-
-                    // List<Evento> listaEventos = new EventoDAO().getSetEventos(3);
                     listView = (ListView) findViewById(R.id.listaEventos);
-
 
                     EventoAdapter eventoAdapter = new EventoAdapter(TelaHome.this,event);
                     listView.setAdapter(eventoAdapter);

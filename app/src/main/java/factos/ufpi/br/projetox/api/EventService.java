@@ -1,4 +1,4 @@
-package factos.ufpi.br.projetox.dao;
+package factos.ufpi.br.projetox.api;
 
 
 import java.util.List;
