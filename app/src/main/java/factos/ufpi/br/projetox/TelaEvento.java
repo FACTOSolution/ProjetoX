@@ -49,7 +49,7 @@ public class TelaEvento extends AppCompatActivity {
         descricao.setText(evento.getDescription());
         valor.setText(evento.getValue());
         local.setText(evento.getAddress());
-        Picasso.with(this).load(evento.getImages().get(0)).resize(900, 500).into(imagem);
+        Picasso.with(this).load(evento.getImages().get(0)).into(imagem);
 
 
 

@@ -9,7 +9,7 @@
     <color name="coloricon">#fff</color>
     <color name="colorSubText">#737171</color>
 
-    <color name="colorTop">#29353C</color>
+    <color name="colorTop">#4c585e</color>
     <color name="colorFundo">#27333A</color>
-    <color name="colorBottom">#29353C</color>
+    <color name="colorBottom">#595959</color>
 </resources>

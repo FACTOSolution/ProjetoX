@@ -13,6 +13,6 @@ import retrofit2.http.GET;
 
 public interface EventService {
 
-    @GET("event")
+    @GET("event?page=1")
     Call<List<Evento>> listEvent();
 }
